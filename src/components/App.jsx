@@ -7,12 +7,7 @@ import css from './Phonebook.module.css';
 import PropTypes from 'prop-types';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(() => {
-    const list = localStorage.getItem('contacts-list');
-    const initialValue = setContacts(JSON.parse(list));
-    return initialValue || '';
-  });
-
+  const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
 
   const handleSubmit = (name, number) => {
@@ -30,6 +25,17 @@ export const App = () => {
   const handleInput = text => {
     setFilter(text);
   };
+
+  useEffect(() => {
+    const list = localStorage.getItem('contacts-list');
+    if (!list) return;
+
+    try {
+      setContacts(JSON.parse(list));
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
 
   useEffect(() => {
     const contactsListStringified = JSON.stringify(contacts);
