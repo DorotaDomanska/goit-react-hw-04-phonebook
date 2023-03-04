@@ -17,13 +17,15 @@ export const ContactForm = ({ myContacts, onFormSubmit }) => {
 
   const onButtonSubmit = evt => {
     evt.preventDefault();
-
+    const form = evt.target;
     const sameName = myContacts.some(
       contacts => contacts.name.toLowerCase() === name.toLowerCase()
     );
     sameName
       ? alert(`${name} is already in contacts.`)
       : onFormSubmit(name, number);
+
+    form.reset();
   };
 
   return (
