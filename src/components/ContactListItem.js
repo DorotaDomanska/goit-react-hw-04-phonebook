@@ -1,8 +1,6 @@
 import css from './Phonebook.module.css';
 
-export const ContactListItem = props => {
-  const { onDelete, myFilteredContacts } = props;
-
+export const ContactListItem = ({ onDelete, myFilteredContacts }) => {
   const handleDelete = evt => {
     const contactId = evt.target.id;
 

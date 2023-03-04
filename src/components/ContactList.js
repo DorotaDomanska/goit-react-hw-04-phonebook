@@ -2,18 +2,14 @@ import { ContactListItem } from './ContactListItem';
 import css from './Phonebook.module.css';
 import PropTypes from 'prop-types';
 
-export const ContactList = props => {
-  const { myFilteredContacts, onDelete } = props;
-
-  return (
-    <ul className={css.list}>
-      <ContactListItem
-        myFilteredContacts={myFilteredContacts}
-        onDelete={onDelete}
-      />
-    </ul>
-  );
-};
+export const ContactList = ({ myFilteredContacts, onDelete }) => (
+  <ul className={css.list}>
+    <ContactListItem
+      myFilteredContacts={myFilteredContacts}
+      onDelete={onDelete}
+    />
+  </ul>
+);
 
 ContactListItem.propTypes = {
   myFilteredContacts: PropTypes.arrayOf(

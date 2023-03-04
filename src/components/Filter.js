@@ -1,9 +1,8 @@
 import css from './Phonebook.module.css';
 
-export const Filter = props => {
+export const Filter = ({ onFilter }) => {
   const handleInputChange = evt => {
     const text = evt.target.value;
-    const { onFilter } = props;
 
     onFilter(text);
   };

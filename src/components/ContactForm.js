@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import css from './Phonebook.module.css';
 
-export const ContactForm = props => {
+export const ContactForm = ({ myContacts, onFormSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
-  const { myContacts, onFormSubmit } = props;
 
   const handleChange = evt => {
     const { name } = evt.target;
